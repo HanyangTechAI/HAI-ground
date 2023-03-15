@@ -13,10 +13,13 @@ bos_token='[BOS]', eos_token='[EOS]', unk_token='[UNK]', pad_token='[PAD]', mask
 )
 
 model = AutoModelForCausalLM.from_pretrained(
-'kakaobrain/kogpt', revision='KoGPT6B-ryan1.5b-float16',  # or float32 version: revision=KoGPT6B-ryan1.5b
-pad_token_id=tokenizer.eos_token_id,
-torch_dtype='auto', low_cpu_mem_usage=True,
-device_map="auto", load_in_8bit=True,
+                                                                                                    'kakaobrain/kogpt',
+                                                                                                    revision='KoGPT6B-ryan1.5b-float16',  # or float32 version: revision=KoGPT6B-ryan1.5b
+                                                                                                    pad_token_id=tokenizer.eos_token_id,
+                                                                                                    torch_dtype=torch.float16,
+                                                                                                    low_cpu_mem_usage=True,
+                                                                                                    device_map="auto",
+                                                                                                    load_in_8bit=False,
 )
 model.eval()
 
