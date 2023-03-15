@@ -8,6 +8,13 @@ HAI 인공지능 스터디를 위한 playground 개발
 - 기초 스터디를 위한 교보재이자 , 임원진들의 포트폴리오가 될 수 있는 프로젝트
 - 자유로운 contribution 환영
 
+# 사용방법
+## GPT Demo
+- http://HAI-ground.online
+![image](https://user-images.githubusercontent.com/44901828/222914872-18348bd6-5cc2-49aa-b3ec-3c856739c598.png)
+- Submit 버튼을 누르면 입력된 문장에 이어지는 다음 텍스트를 자동으로 생성합니다.
+- 좌측 사이드바의 Advanced option에서 샘플링 사용 여부 등 생성에 활용할 옵션을 선택할 수 있습니다.
+
 # Commit 및 push 관련 규칙
 - Default branch는 dev로, 여기에서 최신 코드를 관리할 예정
 - dev branch에 반영된 내용을 바탕으로 실제 서빙용 deploy branch 별도 관리
