@@ -50,29 +50,26 @@ def main():
     input_area = st.empty()
     input_area.text_area(f"텍스트 입력", "여기에 입력", key='input_txt' ,height=200)
 
-    area = st.container()
-
     if st.button("Submit"):
 
-        area.subheader("문장 생성 결과")
+        st.subheader("문장 생성 결과")
         input_txt = st.session_state.input_txt
 
-        with area:
-            with st.spinner("Generating next sentences..."):
-                body = json.dumps({
-                    "text": input_txt,
-                    "num_sequences":num_output,
-                    "max_new_tokens":max_new_tokens,
-                    "do_sample":do_sample,
-                    "top_k":top_k,
-                    "top_p":top_p,
-                    "temperature":temperature,
-                })
-                response = requests.post(url=SPAWNER_API+'generate', headers=headers, data=body).json()
-                new_sentences = response["generated"]
+        with st.spinner("Generating next sentences..."):
+            body = json.dumps({
+                "text": input_txt,
+                "num_sequences":num_output,
+                "max_new_tokens":max_new_tokens,
+                "do_sample":do_sample,
+                "top_k":top_k,
+                "top_p":top_p,
+                "temperature":temperature,
+            })
+            response = requests.post(url=SPAWNER_API+'generate', headers=headers, data=body).json()
+            new_sentences = response["generated"]
 
         for i, sent in enumerate(new_sentences):
-            area.text_area(f'Result {i+1}', sent)
+            st.text_area(f'Result {i+1}', sent)
 
 if __name__ == '__main__':
 	main()
